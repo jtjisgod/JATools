@@ -13,8 +13,6 @@ def clear() :
 #
 # path = "./"
 
-# apkAnalyzer = Plugins.libApkAnalyzer.ApkAnalyzer(path)
-
 # getMainActivity
 # log.kv("Main Activity", apkAnalyzer.mainActivity)
 
@@ -45,7 +43,7 @@ while True :
     print("┌──────────────────────────────【 JTJ APK TOOLS 】──────────────────────────────┐")
     print("│ " + ("%77s"%("")) + " │")
     for menu in menues :
-        menustr = colored("%10s"%menu[0], "yellow") + " : " + "%60s"%menu[1]
+        menustr = colored("%15s"%menu[0], "yellow") + " : " + "%55s"%menu[1]
         print("│ " + ("%86s"%(menustr)) + " │")
     print("│ " + ("%77s"%("")) + " │")
     print("└───────────────────────────────────────────────────────────────────────────────┘")

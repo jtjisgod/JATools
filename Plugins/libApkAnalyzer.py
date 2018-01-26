@@ -19,7 +19,6 @@ class ApkAnalyzer :
     dictActivities = []
 
 
-
     def __init__(self, path) :
         self.path = path
         self.apkdir = path + self.apkdir
@@ -60,13 +59,15 @@ class ApkAnalyzer :
         self.dictActivities = sorted(self.dictActivities, key=lambda x:x[0])
 
     def showActivities(self) :
-        for i in range(0, len(apkAnalyzer.dictActivities)) :
+        for i in range(0, len(self.dictActivities)) :
             print(
                 (colored("%5d. "%i, "red")) +
-                apkAnalyzer.dictActivities[i][0] + "\t" +
-                colored(apkAnalyzer.dictActivities[i][1], "yellow")
+                self.dictActivities[i][0] + "\t" +
+                colored(self.dictActivities[i][1], "yellow")
             )
 
+    def getMainActivity(self) :
+        print(colored("Main Activity", "yellow"), self.mainActivity)
 
 
 

@@ -7,14 +7,20 @@ import sys
 
 class Command :
     apktools = None
+    apkAnalyzer = None
     commands = None
     def __init__(self) :
         self.path = "./"
         self.init()
     def init(self) :
         self.apktools = Plugins.libApktools.Apktools(self.path)
+        self.apkAnalyzer = Plugins.libApkAnalyzer.ApkAnalyzer(self.path)
         self.commands = (
             ("path", "Change Path", self.changePath),
+            ("main", "show main activity", self.apkAnalyzer.getMainActivity),
+            ("show-activities", "List of Activities", self.apkAnalyzer.showActivities),
+            # ("comment-actvities", "List of Activities", self.showActivities),
+            # ("comment-actvities", "List of Activities", self.showActivities),
             ("decompile", "Application decompile with apktools", self.apktools.decompile),
             ("recompile", "Application re-build with apktools", self.apktools.rebuild),
             ("q", "Quit", sys.exit)
