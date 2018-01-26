@@ -10,13 +10,18 @@ class Command :
     commands = None
     def __init__(self) :
         self.path = "./"
+        self.init()
+    def init(self) :
         self.apktools = Plugins.libApktools.Apktools(self.path)
         self.commands = (
+            ("path", "Change Path", self.changePath),
             ("decompile", "Application decompile with apktools", self.apktools.decompile),
             ("recompile", "Application re-build with apktools", self.apktools.rebuild),
             ("q", "Quit", sys.exit)
         )
-        pass
+    def changePath(self) :
+        self.path = input("Change path to : ") + "/"
+        self.init()
     def getCommands(self) :
         return self.commands
     def inputCmd(self) :
